@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.TaskStackBuilder;
-import android.util.Log;
 
-import com.mrswimmer.galleryforyandexschool.data.Screens;
+import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.activity.AuthActivity;
+import com.mrswimmer.galleryforyandexschool.presentation.main.activity.MainActivity;
 import com.mrswimmer.galleryforyandexschool.presentation.splash.intro.IntroActivity;
 
 import ru.terrakok.cicerone.Navigator;

@@ -1,10 +1,9 @@
 package com.mrswimmer.galleryforyandexschool.domain.utils;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.mrswimmer.galleryforyandexschool.data.Screens;
+import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.SignInFragment;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_up.SignUpFragment;
 
@@ -33,7 +32,8 @@ public class LocalNavigator extends SupportFragmentNavigator {
 
     private Fragment mainFragments(String screenKey, Object data) {
         switch (screenKey) {
-
+            case Screens.GALLERY_SCREEN:
+                return new
             default:
 
         }

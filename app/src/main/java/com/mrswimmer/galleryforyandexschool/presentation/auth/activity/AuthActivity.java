@@ -3,7 +3,7 @@ package com.mrswimmer.galleryforyandexschool.presentation.auth.activity;
 
 import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.R;
-import com.mrswimmer.galleryforyandexschool.data.Screens;
+import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.presentation.base.BaseActivity;
 
 public class AuthActivity extends BaseActivity {

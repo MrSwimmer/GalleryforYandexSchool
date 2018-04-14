@@ -1,4 +1,4 @@
-package com.mrswimmer.galleryforyandexschool.data;
+package com.mrswimmer.galleryforyandexschool.data.settings;
 
 
 import com.mrswimmer.galleryforyandexschool.R;
@@ -38,4 +38,7 @@ public interface Screens {
     String CHOOSE_PROD = "choose prod";
     String NEW_SHOP = "new shop";
     String INFO_SCREEN = "info screen";
+    String GALLERY_SCREEN = "gallery screen";
+    String MY_GALLERY_SCREEN = "my gallery screen";
+    String FAVORITE_SCREEN = "favor screen";
 }

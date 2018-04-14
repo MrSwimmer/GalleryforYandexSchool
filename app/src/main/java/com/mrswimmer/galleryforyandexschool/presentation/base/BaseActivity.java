@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
-import com.mrswimmer.galleryforyandexschool.data.Screens;
+import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Global;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Local;
 import com.mrswimmer.galleryforyandexschool.domain.utils.GlobalNavigator;

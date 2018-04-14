@@ -6,6 +6,11 @@ import com.mrswimmer.galleryforyandexschool.di.module.SharedPreferencesModule;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.activity.AuthActivity;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.SignInFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_up.SignUpFragmentPresenter;
+import com.mrswimmer.galleryforyandexschool.presentation.main.activity.MainActivity;
+import com.mrswimmer.galleryforyandexschool.presentation.main.activity.MainActivityPresenter;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.GalleryFragmentPresenter;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.recycler.ImagesAdapter;
+import com.mrswimmer.galleryforyandexschool.presentation.splash.SplashActivity;
 
 import javax.inject.Singleton;
 
@@ -20,4 +25,14 @@ public interface AppComponent {
     void inject(SignInFragmentPresenter signInFragmentPresenter);
 
     void inject(SignUpFragmentPresenter signUpFragmentPresenter);
+
+    void inject(MainActivityPresenter mainActivityPresenter);
+
+    void inject(MainActivity mainActivity);
+
+    void inject(SplashActivity splashActivity);
+
+    void inject(GalleryFragmentPresenter galleryFragmentPresenter);
+
+    void inject(ImagesAdapter imagesAdapter);
 }

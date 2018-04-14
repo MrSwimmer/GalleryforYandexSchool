@@ -1,4 +1,4 @@
-package com.mrswimmer.galleryforyandexschool.data;
+package com.mrswimmer.galleryforyandexschool.data.settings;
 
 public interface Settings {
     String coffeKinds[] = {"Арабика", "Робуста", "Либерика", "Эксцельза"};

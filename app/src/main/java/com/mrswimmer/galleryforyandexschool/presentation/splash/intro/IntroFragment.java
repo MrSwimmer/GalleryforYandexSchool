@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mrswimmer.coffeeteaadmin.R;
+import com.mrswimmer.galleryforyandexschool.R;
 
 import agency.tango.materialintroscreen.SlideFragment;
 
@@ -33,16 +33,6 @@ public class IntroFragment extends SlideFragment {
         textView = view.findViewById(R.id.textintro);
         textView.setText(text);
         return view;
-    }
-
-    @Override
-    public int backgroundColor() {
-        return R.color.black;
-    }
-
-    @Override
-    public int buttonsColor() {
-        return R.color.empty;
     }
 
     @Override

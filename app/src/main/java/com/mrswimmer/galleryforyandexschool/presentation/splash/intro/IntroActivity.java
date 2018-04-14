@@ -3,7 +3,7 @@ package com.mrswimmer.galleryforyandexschool.presentation.splash.intro;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.mrswimmer.coffeeteaadmin.R;
+import com.mrswimmer.galleryforyandexschool.R;
 
 import javax.inject.Inject;
 

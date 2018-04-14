@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_gallery"
+            android:title="Галерея" />
+        <item
+            android:id="@+id/nav_favor"
+            android:title="Избранное" />
+        <item
+            android:id="@+id/nav_my_gallery"
+            android:title="Моя галерея" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Настройки" />
+    </group>
+</menu>

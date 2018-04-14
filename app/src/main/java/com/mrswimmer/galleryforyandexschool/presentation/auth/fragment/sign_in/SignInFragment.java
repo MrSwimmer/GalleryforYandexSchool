@@ -45,17 +45,11 @@ public class SignInFragment extends BaseFragment implements SignInFragmentView {
         presenter.gotoReg();
     }
 
-    /*@Override
-    public void showErrorToast(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-    }*/
-
     void enter() {
         if (checkOnFillingFields()) {
             presenter.enter(email, password);
         } else {
             showToast("Запоните все поля");
-            //showErrorToast("Заполните все поля!");
         }
     }
 

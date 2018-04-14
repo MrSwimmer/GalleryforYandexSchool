@@ -12,6 +12,7 @@ import com.google.firebase.storage.UploadTask;
 import com.kelvinapps.rxfirebase.DataSnapshotMapper;
 import com.kelvinapps.rxfirebase.RxFirebaseAuth;
 import com.kelvinapps.rxfirebase.RxFirebaseDatabase;
+import com.mrswimmer.galleryforyandexschool.data.model.User;
 
 import java.util.List;
 
@@ -40,8 +41,23 @@ public class FireService {
                 .subscribe(callBack::onSuccess, callBack::onError);
     }
 
+    public boolean checkLogIn() {
+        return null != auth.getCurrentUser();
+    }
+
+    public void getUser(String mail, UserCallback callback) {
+        RxFirebaseDatabase.observeSingleValueEvent(reference.child("users").child(mail), User.class)
+                .subscribe(callback::onSuccess, callback::onError);
+    }
+
     public interface AuthCallBack {
         void onSuccess(boolean success);
+
+        void onError(Throwable e);
+    }
+
+    public interface UserCallback {
+        void onSuccess(User user);
 
         void onError(Throwable e);
     }

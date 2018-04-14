@@ -69,15 +69,10 @@ public class SignUpFragment extends BaseFragment implements SignUpFragmentView {
 
     void signUp() {
         if (checkOnFillingFields()) {
-            presenter.signUp(email, pass);
+            presenter.signUp(email, pass, username);
         } else {
             showToast("Заполните все поля!");
         }
-    }
-
-    @Override
-    public void getUserData() {
-        presenter.addUser(username, firstName, lastName, email, city);
     }
 
     boolean checkOnFillingFields() {

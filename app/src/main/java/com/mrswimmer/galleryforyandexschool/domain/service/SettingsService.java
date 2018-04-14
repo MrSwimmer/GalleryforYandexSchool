@@ -7,6 +7,7 @@ import javax.inject.Inject;
 public class SettingsService {
     private final String MAIL = "mail";
     private final String USERNAME = "username";
+    private final String USERNAME_DEFAULT = "Гость";
 
     @Inject
     SharedPreferences sharedPreferences;
@@ -19,4 +20,7 @@ public class SettingsService {
     }
 
 
+    public String getUsername() {
+        return sharedPreferences.getString(USERNAME, USERNAME_DEFAULT);
+    }
 }
