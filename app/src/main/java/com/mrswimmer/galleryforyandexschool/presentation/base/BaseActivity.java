@@ -2,6 +2,8 @@ package com.mrswimmer.galleryforyandexschool.presentation.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
+import ru.terrakok.cicerone.commands.Command;
 
 public abstract class BaseActivity extends MvpAppCompatActivity implements BaseView {
 
@@ -48,7 +51,6 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements BaseV
                 localRouter.newRootScreen(Screens.CATALOG_SCREEN);
                 break;
         }
-        //localRouter.newRootScreen(Screens.SIGN_IN_SCREEN);
     }
 
     @Override
@@ -64,7 +66,6 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements BaseV
     protected void onPause() {
         super.onPause();
         localNavigatorHolder.removeNavigator();
-
     }
 
     protected abstract void injectDependencies();
@@ -88,4 +89,5 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements BaseV
         AlertDialog alert = builder.create();
         alert.show();
     }
+
 }

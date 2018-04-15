@@ -10,12 +10,23 @@ import com.bumptech.glide.Glide;
 import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.R;
 import com.mrswimmer.galleryforyandexschool.data.model.ImageItem;
+import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
+import com.mrswimmer.galleryforyandexschool.di.qualifier.Local;
 
 import java.util.ArrayList;
+
+import javax.inject.Inject;
+
+import ru.terrakok.cicerone.Router;
 
 public class ImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     ArrayList<ImageItem> images = new ArrayList<>();
     Context context;
+
+    @Inject
+    @Local
+    Router router;
+
     public ImagesAdapter(ArrayList<ImageItem> images, Context context) {
         this.images = images;
         this.context = context;
@@ -37,6 +48,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
                 .centerCrop()
                 .placeholder(R.color.black)
                 .into(holder.image);
+        holder.image.setOnClickListener(v -> router.navigateTo(Screens.DETAIL_SCREEN, imageItem.getId()));
     }
 
     @Override

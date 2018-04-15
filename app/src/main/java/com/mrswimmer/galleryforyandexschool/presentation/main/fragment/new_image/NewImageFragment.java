@@ -35,7 +35,7 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
     @BindView(R.id.new_image_name)
     EditText editName;
     @BindView(R.id.new_image_description)
-    EditText editDesciption;
+    EditText editDescription;
     @BindView(R.id.new_image_upload)
     Button upload;
 
@@ -56,7 +56,7 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
     @OnClick(R.id.new_image_upload)
     public void onUploadClickListener() {
         name = editName.getText().toString();
-        description = editDesciption.getText().toString();
+        description = editDescription.getText().toString();
         if (checkOnFillingFields()) {
             ImageItem imageItem = new ImageItem(name, description);
             presenter.createImage(imageItem, uriImage);

@@ -42,4 +42,5 @@ public interface Screens {
     String MY_GALLERY_SCREEN = "my gallery screen";
     String FAVORITE_SCREEN = "favor screen";
     String NEW_IMAGE_SCREEN = "new image screen";
+    String DETAIL_SCREEN = "detail screen";
 }

@@ -14,4 +14,5 @@ public interface Settings {
     String GALLERY_MY_GALLERY = "my gallery";
     String GALLERY_FAVORITE = "favorite";
     String GALLERY_BUNDLE_KEY = "gallery bundle key";
+    String DETAIL_BUNDLE_ID = "detail bundle id";
 }

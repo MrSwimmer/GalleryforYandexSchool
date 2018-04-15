@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +25,9 @@ import com.mrswimmer.galleryforyandexschool.presentation.base.BaseActivity;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import ru.terrakok.cicerone.Navigator;
+import ru.terrakok.cicerone.android.SupportFragmentNavigator;
+import ru.terrakok.cicerone.commands.Command;
 
 public class MainActivity extends BaseActivity implements MainActivityView {
 
@@ -60,7 +65,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
     @Override
@@ -93,6 +98,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -104,6 +110,5 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
-
 
 }

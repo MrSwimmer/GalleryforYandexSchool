@@ -1,23 +1,19 @@
-package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery;
+package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.detail;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.data.model.ImageItem;
-import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Local;
 import com.mrswimmer.galleryforyandexschool.domain.service.FireService;
 import com.mrswimmer.galleryforyandexschool.domain.service.SettingsService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
 import ru.terrakok.cicerone.Router;
 
 @InjectViewState
-public class GalleryFragmentPresenter extends MvpPresenter<GalleryFragmentView> {
+public class DetailFragmentPresenter extends MvpPresenter<DetailFragmentView> {
     @Inject
     @Local
     Router router;
@@ -26,25 +22,21 @@ public class GalleryFragmentPresenter extends MvpPresenter<GalleryFragmentView> 
     @Inject
     SettingsService settingsService;
 
-    public GalleryFragmentPresenter() {
+    public DetailFragmentPresenter() {
         App.getComponent().inject(this);
     }
 
-    public void setRecyclerData(String key) {
-        fireService.getGallery(key, settingsService.getMailKey(), new FireService.GalleryCallback() {
+    public void setImageDetail(String id) {
+        fireService.getImage(id, new FireService.ImageDetailCallback() {
             @Override
-            public void onSuccess(List<ImageItem> imageItems) {
-                getViewState().initAdapter((ArrayList<ImageItem>) imageItems);
+            public void onSuccess(ImageItem imageItem) {
+                getViewState().initDetail(imageItem, settingsService.getMailKey());
             }
 
             @Override
             public void onError(Throwable e) {
-                getViewState().showToast("Ошибка!");
+
             }
         });
-    }
-
-    public void gotoNewImage() {
-        router.navigateTo(Screens.NEW_IMAGE_SCREEN);
     }
 }

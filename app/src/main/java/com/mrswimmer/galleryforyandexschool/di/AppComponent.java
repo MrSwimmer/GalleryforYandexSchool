@@ -9,6 +9,7 @@ import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.S
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_up.SignUpFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.activity.MainActivity;
 import com.mrswimmer.galleryforyandexschool.presentation.main.activity.MainActivityPresenter;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.detail.DetailFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.GalleryFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.recycler.ImagesAdapter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.new_image.NewImageFragmentPresenter;
@@ -39,4 +40,6 @@ public interface AppComponent {
     void inject(ImagesAdapter imagesAdapter);
 
     void inject(NewImageFragmentPresenter newImageFragmentPresenter);
+
+    void inject(DetailFragmentPresenter detailFragmentPresenter);
 }

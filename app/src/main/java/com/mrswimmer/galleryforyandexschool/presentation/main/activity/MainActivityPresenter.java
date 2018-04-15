@@ -54,7 +54,7 @@ public class MainActivityPresenter extends MvpPresenter<MainActivityView> {
                 router.replaceScreen(Screens.GALLERY_SCREEN, Settings.GALLERY_FAVORITE);
                 break;
             case R.id.nav_my_gallery:
-                router.replaceScreen(Screens.MY_GALLERY_SCREEN, Settings.GALLERY_MY_GALLERY);
+                router.replaceScreen(Screens.GALLERY_SCREEN, Settings.GALLERY_MY_GALLERY);
                 break;
             case R.id.nav_settings:
                 router.replaceScreen(Screens.SETTINGS_SCREEN);

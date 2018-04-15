@@ -1,10 +1,13 @@
 package com.mrswimmer.galleryforyandexschool.data.model;
 
+import java.util.ArrayList;
+
 public class ImageItem {
     String url;
     String title;
     String description;
     String id;
+    ArrayList<String> likes = new ArrayList<>();
 
     public ImageItem(String url, String title, String description) {
         this.url = url;
@@ -17,11 +20,20 @@ public class ImageItem {
         this.description = description;
     }
 
-    public ImageItem(String url, String title, String description, String id) {
+    public ImageItem(String url, String title, String description, String id, ArrayList<String> likes) {
         this.url = url;
         this.title = title;
         this.description = description;
         this.id = id;
+        this.likes = likes;
+    }
+
+    public ArrayList<String> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(ArrayList<String> likes) {
+        this.likes = likes;
     }
 
     public ImageItem() {

@@ -86,10 +86,16 @@ public class FireService {
         DatabaseReference newImageGallery = reference.child("gallery").push();
         imageItem.setId(newImageGallery.getKey());
         newImageGallery.setValue(imageItem);
-        DatabaseReference newImageMyGallery = reference.child(mailKey).child("my").child(imageItem.getId());
+        DatabaseReference newImageMyGallery = reference.child("users").child(mailKey).child("my").child(imageItem.getId());
         newImageMyGallery.setValue(imageItem);
 
     }
+
+    public void getImage(String id, ImageDetailCallback callback) {
+        RxFirebaseDatabase.observeSingleValueEvent(reference.child("gallery").child(id), ImageItem.class)
+                .subscribe(callback::onSuccess, callback::onError);
+    }
+
 
     public interface UploadImageCallBack {
         void onSuccess(UploadTask.TaskSnapshot taskSnapshot);
@@ -111,6 +117,12 @@ public class FireService {
 
     public interface GalleryCallback {
         void onSuccess(List<ImageItem> imageItems);
+
+        void onError(Throwable e);
+    }
+
+    public interface ImageDetailCallback {
+        void onSuccess(ImageItem imageItem);
 
         void onError(Throwable e);
     }
