@@ -8,8 +8,11 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.R;
 import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
+import com.mrswimmer.galleryforyandexschool.data.settings.Settings;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Global;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Local;
+
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -45,13 +48,13 @@ public class MainActivityPresenter extends MvpPresenter<MainActivityView> {
     private void selectDrawerItem(MenuItem menuItem) {
         switch(menuItem.getItemId()) {
             case R.id.nav_gallery:
-                router.replaceScreen(Screens.GALLERY_SCREEN);
+                router.replaceScreen(Screens.GALLERY_SCREEN, Settings.GALLERY_GALLERY);
                 break;
             case R.id.nav_favor:
-                router.replaceScreen(Screens.FAVORITE_SCREEN);
+                router.replaceScreen(Screens.GALLERY_SCREEN, Settings.GALLERY_FAVORITE);
                 break;
             case R.id.nav_my_gallery:
-                router.replaceScreen(Screens.MY_GALLERY_SCREEN);
+                router.replaceScreen(Screens.MY_GALLERY_SCREEN, Settings.GALLERY_MY_GALLERY);
                 break;
             case R.id.nav_settings:
                 router.replaceScreen(Screens.SETTINGS_SCREEN);

@@ -10,4 +10,8 @@ public interface Settings {
     String USER_ID = "user id";
     String USERNAME = "username";
     int GALLERY_REQUEST = 0;
+    String GALLERY_GALLERY = "gallery";
+    String GALLERY_MY_GALLERY = "my gallery";
+    String GALLERY_FAVORITE = "favorite";
+    String GALLERY_BUNDLE_KEY = "gallery bundle key";
 }

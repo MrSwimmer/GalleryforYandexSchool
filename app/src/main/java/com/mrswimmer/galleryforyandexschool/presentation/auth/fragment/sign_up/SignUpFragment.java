@@ -32,24 +32,8 @@ public class SignUpFragment extends BaseFragment implements SignUpFragmentView {
     EditText editPass;
     @BindView(R.id.sign_up_username)
     EditText editUsername;
-    @BindView(R.id.sign_up_first_name)
-    EditText editFirstName;
-    @BindView(R.id.sign_up_last_name)
-    EditText editLastName;
-    @BindView(R.id.sign_up_city_spinner)
-    Spinner spinner;
 
-    String email, pass, username, firstName, lastName;
-    int city;
-    String[] cities = {"Новосибирск", "Кемерово"};
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        SpinnerAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.sign_up_spinner_item, cities);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(0);
-    }
+    String email, pass, username;
 
     @Override
     protected int getLayoutID() {
@@ -61,9 +45,6 @@ public class SignUpFragment extends BaseFragment implements SignUpFragmentView {
         email = editEmail.getText().toString();
         pass = editPass.getText().toString();
         username = editUsername.getText().toString();
-        firstName = editFirstName.getText().toString();
-        lastName = editLastName.getText().toString();
-        city = spinner.getSelectedItemPosition();
         signUp();
     }
 
@@ -76,7 +57,7 @@ public class SignUpFragment extends BaseFragment implements SignUpFragmentView {
     }
 
     boolean checkOnFillingFields() {
-        if (email.equals("") || pass.equals("") || username.equals("") || firstName.equals("") || lastName.equals(""))
+        if (email.equals("") || pass.equals("") || username.equals(""))
             return false;
         return true;
     }

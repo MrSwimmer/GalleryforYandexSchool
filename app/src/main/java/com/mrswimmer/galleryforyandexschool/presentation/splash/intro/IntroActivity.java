@@ -22,6 +22,7 @@ public class IntroActivity extends MaterialIntroActivity {
         }
     }
 
+
     @Override
     public void onFinish() {
         super.onFinish();

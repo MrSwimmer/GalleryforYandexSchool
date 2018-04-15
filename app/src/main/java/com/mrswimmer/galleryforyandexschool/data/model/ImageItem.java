@@ -4,6 +4,7 @@ public class ImageItem {
     String url;
     String title;
     String description;
+    String id;
 
     public ImageItem(String url, String title, String description) {
         this.url = url;
@@ -11,7 +12,27 @@ public class ImageItem {
         this.description = description;
     }
 
+    public ImageItem(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+    public ImageItem(String url, String title, String description, String id) {
+        this.url = url;
+        this.title = title;
+        this.description = description;
+        this.id = id;
+    }
+
     public ImageItem() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUrl() {

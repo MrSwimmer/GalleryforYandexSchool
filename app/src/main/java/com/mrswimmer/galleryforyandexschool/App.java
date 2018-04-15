@@ -3,6 +3,7 @@ package com.mrswimmer.galleryforyandexschool;
 import android.app.Application;
 
 import com.mrswimmer.galleryforyandexschool.di.AppComponent;
+import com.mrswimmer.galleryforyandexschool.di.DaggerAppComponent;
 import com.mrswimmer.galleryforyandexschool.di.module.SharedPreferencesModule;
 
 public class App extends Application {

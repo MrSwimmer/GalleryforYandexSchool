@@ -46,7 +46,8 @@ public class SignInFragmentPresenter extends MvpPresenter<SignInFragmentView> {
                 fireService.getUser(email, new FireService.UserCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        settingsService.saveUsernameAndMail(user.getMail(), user.getUsername());
+                        String mailKey = email.replace('.', 'd');
+                        settingsService.saveUsernameAndMail(user.getMail(), user.getUsername(), mailKey);
                         globalRouter.navigateTo(Screens.MAIN_ACTIVITY);
                     }
 

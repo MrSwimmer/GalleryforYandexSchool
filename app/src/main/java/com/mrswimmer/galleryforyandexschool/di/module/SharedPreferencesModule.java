@@ -32,7 +32,7 @@ public class SharedPreferencesModule {
 
     @Provides
     @Singleton
-    SettingsService settingsService() {
-        return new SettingsService();
+    SettingsService settingsService(SharedPreferences sharedPreferences) {
+        return new SettingsService(sharedPreferences);
     }
 }

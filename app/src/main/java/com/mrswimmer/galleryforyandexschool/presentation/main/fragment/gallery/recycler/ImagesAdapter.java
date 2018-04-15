@@ -34,6 +34,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
         ImageItem imageItem = images.get(position);
         Glide.with(context)
                 .load(imageItem.getUrl())
+                .centerCrop()
                 .placeholder(R.color.black)
                 .into(holder.image);
     }

@@ -39,4 +39,13 @@ public class IntroFragment extends SlideFragment {
     public String cantMoveFurtherErrorMessage() {
         return "Ошибка";
     }
+    @Override
+    public int backgroundColor() {
+        return R.color.yellow;
+    }
+
+    @Override
+    public int buttonsColor() {
+        return R.color.empty;
+    }
 }

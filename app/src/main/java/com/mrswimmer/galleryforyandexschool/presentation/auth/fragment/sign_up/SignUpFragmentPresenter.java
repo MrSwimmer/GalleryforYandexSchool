@@ -7,6 +7,7 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.mrswimmer.galleryforyandexschool.App;
+import com.mrswimmer.galleryforyandexschool.data.model.User;
 import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.di.qualifier.Global;
 import com.mrswimmer.galleryforyandexschool.domain.service.FireService;
@@ -38,7 +39,10 @@ public class SignUpFragmentPresenter extends MvpPresenter<SignUpFragmentView> {
         fireService.signUp(email, pass, new FireService.AuthCallBack() {
             @Override
             public void onSuccess(boolean success) {
-                settingsService.saveUsernameAndMail(email, username);
+                User user = new User(email, username);
+                String mailKey = email.replace('.', 'd');
+                settingsService.saveUsernameAndMail(email, username, mailKey);
+                fireService.addUser(mailKey, user);
                 globalRouter.navigateTo(Screens.MAIN_ACTIVITY);
             }
 
