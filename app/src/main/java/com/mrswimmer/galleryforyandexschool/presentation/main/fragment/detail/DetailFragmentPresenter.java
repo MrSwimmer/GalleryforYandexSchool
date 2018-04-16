@@ -47,8 +47,28 @@ public class DetailFragmentPresenter extends MvpPresenter<DetailFragmentView> {
 
     public void setLike(boolean isLike) {
         if (isLike)
-            fireService.like(currentImage, settingsService.getMailKey());
+            fireService.like(currentImage, settingsService.getMailKey(), new FireService.ImageDetailCallback() {
+                @Override
+                public void onSuccess(ImageItem imageItem) {
+                    getViewState().setLikes(imageItem.getLikes().size());
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+            });
         else
-            fireService.disLike(currentImage, settingsService.getMailKey());
+            fireService.disLike(currentImage, settingsService.getMailKey(), new FireService.ImageDetailCallback() {
+                @Override
+                public void onSuccess(ImageItem imageItem) {
+                    getViewState().setLikes(imageItem.getLikes().size());
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+            });
     }
 }

@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -62,6 +63,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         drawerLayout.addDrawerListener(drawerToggle);
         TextView username = headerLayout.findViewById(R.id.header_username);
         username.setText(settingsService.getUsername());
+        ImageView share = headerLayout.findViewById(R.id.header_share);
+        share.setOnClickListener(v -> presenter.share());
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {

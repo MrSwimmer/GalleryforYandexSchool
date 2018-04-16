@@ -45,6 +45,10 @@ public class FireService {
                 .subscribe(callBack::onSuccess, callBack::onError);
     }
 
+    public void signOut() {
+        auth.signOut();
+    }
+
     public boolean checkLogIn() {
         return null != auth.getCurrentUser();
     }
@@ -101,18 +105,22 @@ public class FireService {
                 .subscribe(callback::onSuccess, callback::onError);
     }
 
-    public void like(ImageItem imageItem, String mailKey) {
+    public void like(ImageItem imageItem, String mailKey, ImageDetailCallback callback) {
         DatabaseReference like = reference.child("gallery").child(imageItem.getId()).child("likes").child(mailKey);
         like.setValue("like");
         DatabaseReference likeInUser = reference.child("users").child(mailKey).child("likes").child(imageItem.getId());
         likeInUser.setValue(imageItem);
+        RxFirebaseDatabase.observeSingleValueEvent(reference.child("gallery").child(imageItem.getId()), ImageItem.class)
+                .subscribe(callback::onSuccess, callback::onError);
     }
 
-    public void disLike(ImageItem imageItem, String mailKey) {
+    public void disLike(ImageItem imageItem, String mailKey, ImageDetailCallback callback) {
         DatabaseReference like = reference.child("gallery").child(imageItem.getId()).child("likes").child(mailKey);
         like.removeValue();
         DatabaseReference likeInUser = reference.child("users").child(mailKey).child("likes").child(imageItem.getId());
         likeInUser.removeValue();
+        RxFirebaseDatabase.observeSingleValueEvent(reference.child("gallery").child(imageItem.getId()), ImageItem.class)
+                .subscribe(callback::onSuccess, callback::onError);
     }
 
     public interface UploadImageCallBack {

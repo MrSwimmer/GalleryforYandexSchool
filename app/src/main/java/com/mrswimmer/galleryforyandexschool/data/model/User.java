@@ -6,14 +6,8 @@ import java.util.HashMap;
 public class User {
     String mail;
     String username;
-    ArrayList<ImageItem> images = new ArrayList<>();
-    HashMap<String, String> likes = new HashMap<>();
-
-    public User(String mail, String username, ArrayList<ImageItem> images) {
-        this.mail = mail;
-        this.username = username;
-        this.images = images;
-    }
+    HashMap<String, ImageItem> likes = new HashMap<>();
+    HashMap<String, ImageItem> my = new HashMap<>();
 
     public User() {
     }
@@ -23,12 +17,20 @@ public class User {
         this.username = username;
     }
 
-    public HashMap<String, String> getLikes() {
+    public HashMap<String, ImageItem> getLikes() {
         return likes;
     }
 
-    public void setLikes(HashMap<String, String> likes) {
+    public void setLikes(HashMap<String, ImageItem> likes) {
         this.likes = likes;
+    }
+
+    public HashMap<String, ImageItem> getMy() {
+        return my;
+    }
+
+    public void setMy(HashMap<String, ImageItem> my) {
+        this.my = my;
     }
 
     public String getMail() {
@@ -47,11 +49,4 @@ public class User {
         this.username = username;
     }
 
-    public ArrayList<ImageItem> getImages() {
-        return images;
-    }
-
-    public void setImages(ArrayList<ImageItem> images) {
-        this.images = images;
-    }
 }

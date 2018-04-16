@@ -46,7 +46,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
         Glide.with(context)
                 .load(imageItem.getUrl())
                 .centerCrop()
-                .placeholder(R.color.black)
+                .placeholder(R.color.transparent)
                 .into(holder.image);
         holder.image.setOnClickListener(v -> router.navigateTo(Screens.DETAIL_SCREEN, imageItem.getId()));
     }

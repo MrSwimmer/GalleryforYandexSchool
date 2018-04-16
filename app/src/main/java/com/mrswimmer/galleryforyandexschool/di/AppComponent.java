@@ -13,6 +13,7 @@ import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.detail.De
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.GalleryFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.recycler.ImagesAdapter;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.new_image.NewImageFragmentPresenter;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.settings.SettingsFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.splash.SplashActivity;
 
 import javax.inject.Singleton;
@@ -42,4 +43,6 @@ public interface AppComponent {
     void inject(NewImageFragmentPresenter newImageFragmentPresenter);
 
     void inject(DetailFragmentPresenter detailFragmentPresenter);
+
+    void inject(SettingsFragmentPresenter settingsFragmentPresenter);
 }

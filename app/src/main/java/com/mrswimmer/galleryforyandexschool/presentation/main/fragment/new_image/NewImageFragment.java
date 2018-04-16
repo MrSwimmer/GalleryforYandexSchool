@@ -44,7 +44,6 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
     @BindView(R.id.new_image_upload)
     Button upload;
 
-    boolean setImage = false;
     String description, name;
     Uri uriImage = null;
 
@@ -88,29 +87,9 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
             case Settings.GALLERY_REQUEST:
                 Glide.with(getActivity())
                         .load(imageReturnedIntent.getData())
-                        .placeholder(R.color.black)
+                        .placeholder(R.color.transparent)
                         .into(image);
-                /*if (resultCode == RESULT_OK) {
-                    uriImage = imageReturnedIntent.getData();
-                    image.setImageURI(uriImage);
-                } else {
-                    Log.i("code", "error show large photo " + resultCode);
-                    Glide.with(getActivity())
-                            .load(imageReturnedIntent.getData())
-                            .placeholder(R.color.black)
-                            .into(image);
-                }*/
+                uriImage = imageReturnedIntent.getData();
         }
     }
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.undo:
-                Toast.makeText(getActivity(), "onBack", Toast.LENGTH_SHORT).show();
-                presenter.goBack();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 }

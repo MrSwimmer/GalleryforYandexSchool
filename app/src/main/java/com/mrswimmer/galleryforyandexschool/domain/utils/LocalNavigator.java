@@ -11,7 +11,9 @@ import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.S
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_up.SignUpFragment;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.detail.DetailFragment;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery.GalleryFragment;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.info.InfoFragment;
 import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.new_image.NewImageFragment;
+import com.mrswimmer.galleryforyandexschool.presentation.main.fragment.settings.SettingsFragment;
 
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 import ru.terrakok.cicerone.commands.Command;
@@ -52,6 +54,13 @@ public class LocalNavigator extends SupportFragmentNavigator {
                 DetailFragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
                 return detailFragment;
+            case Screens.SETTINGS_SCREEN:
+                return new SettingsFragment();
+            case Screens.INFO_SCREEN:
+                bundle.putInt("text", (Integer) data);
+                InfoFragment infoFragment = new InfoFragment();
+                infoFragment.setArguments(bundle);
+                return infoFragment;
             default:
                 return new GalleryFragment();
         }

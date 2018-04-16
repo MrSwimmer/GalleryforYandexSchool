@@ -60,7 +60,7 @@ public class DetailFragment extends BaseFragment implements DetailFragmentView {
     public void initDetail(ImageItem imageItem, String mailKey) {
         Glide.with(getActivity())
                 .load(imageItem.getUrl())
-                .placeholder(R.color.black)
+                .placeholder(R.color.transparent)
                 .into(image);
         name.setText(imageItem.getTitle());
         description.setText(imageItem.getDescription());
@@ -71,15 +71,14 @@ public class DetailFragment extends BaseFragment implements DetailFragmentView {
         setAlphaLike();
     }
 
+    @Override
+    public void setLikes(int count) {
+        likes.setText(count+"");
+    }
+
     @OnClick(R.id.detail_like_button)
     void OnLikeClickListener() {
         isLike = !isLike;
-        int count = Integer.parseInt(likes.getText().toString());
-        if(isLike)
-            count++;
-        else
-            count--;
-        likes.setText(count+"");
         presenter.setLike(isLike);
         setAlphaLike();
     }

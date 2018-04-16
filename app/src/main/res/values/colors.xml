@@ -9,4 +9,5 @@
     <color name="drawer">#212121</color>
     <color name="yellow">#fffb1c</color>
     <color name="brawn">#5D4037</color>
+    <color name="transparent">#00ffffff</color>
 </resources>

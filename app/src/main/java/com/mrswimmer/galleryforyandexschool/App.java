@@ -2,6 +2,7 @@ package com.mrswimmer.galleryforyandexschool;
 
 import android.app.Application;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.mrswimmer.galleryforyandexschool.di.AppComponent;
 import com.mrswimmer.galleryforyandexschool.di.DaggerAppComponent;
 import com.mrswimmer.galleryforyandexschool.di.module.SharedPreferencesModule;
@@ -19,6 +20,6 @@ public class App extends Application {
         component = DaggerAppComponent.builder()
                 .sharedPreferencesModule(new SharedPreferencesModule(getApplicationContext()))
                 .build();
-        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 }

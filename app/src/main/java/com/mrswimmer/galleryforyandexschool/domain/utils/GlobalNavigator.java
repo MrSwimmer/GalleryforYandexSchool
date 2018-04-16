@@ -45,9 +45,16 @@ public class GlobalNavigator implements Navigator {
                     break;
                 case Screens.SET_MARK_IN_GOOGLE_PLAY:
                     intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=com.mrswimmer.coffeetea"));
+                    intent.setData(Uri.parse("market://details?id=com.mrswimmer.galleryforyandexschool"));
                     activity.startActivity(intent);
                     break;
+                case Screens.SHARE:
+                    intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, "Присоединяйтесь к Галерее!\nhttps://play.google.com/store/apps/details?id=com.mrswimmer.galleryforyandexschool");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Поделиться");
+                    intent = Intent.createChooser(intent, "С помощью");
+                    activity.startActivity(intent);
             }
         }
     }

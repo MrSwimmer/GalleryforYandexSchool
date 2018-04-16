@@ -5,4 +5,6 @@ import com.mrswimmer.galleryforyandexschool.presentation.base.BaseView;
 
 public interface DetailFragmentView extends BaseView {
     void initDetail(ImageItem imageItem, String mailKey);
+
+    void setLikes(int count);
 }

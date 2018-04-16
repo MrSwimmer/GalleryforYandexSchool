@@ -43,17 +43,17 @@ public class SignInFragmentPresenter extends MvpPresenter<SignInFragmentView> {
         fireService.signIn(email, pass, new FireService.AuthCallBack() {
             @Override
             public void onSuccess(boolean success) {
-                fireService.getUser(email, new FireService.UserCallback() {
+                String mailKey = email.replace('.', 'd');
+                fireService.getUser(mailKey, new FireService.UserCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        String mailKey = email.replace('.', 'd');
                         settingsService.saveUsernameAndMail(user.getMail(), user.getUsername(), mailKey);
                         globalRouter.navigateTo(Screens.MAIN_ACTIVITY);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        getViewState().showToast("Ошибка");
+                        getViewState().showToast(e.getMessage());
                     }
                 });
             }
