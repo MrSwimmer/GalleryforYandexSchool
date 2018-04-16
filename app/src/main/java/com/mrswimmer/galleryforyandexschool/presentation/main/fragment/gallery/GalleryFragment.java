@@ -49,10 +49,10 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        swipe.setOnRefreshListener(() -> {
+        /*swipe.setOnRefreshListener(() -> {
             presenter.setRecyclerData(key);
             swipe.setRefreshing(false);
-        });
+        });*/
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             key = bundle.getString(Settings.GALLERY_BUNDLE_KEY);
@@ -67,6 +67,7 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
 
     @Override
     public void initAdapter(ArrayList<ImageItem> imageItems) {
+        swipe.setRefreshing(false);
         recyclerView.setAdapter(new ImagesAdapter(imageItems, getActivity()));
     }
 
@@ -77,8 +78,7 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(() -> {
-            swipe.setRefreshing(false);
-        }, 4000);
+        swipe.setRefreshing(true);
+        presenter.setRecyclerData(key);
     }
 }
