@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -83,7 +84,12 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
             case Settings.GALLERY_REQUEST:
                 if (resultCode == RESULT_OK) {
                     uriImage = imageReturnedIntent.getData();
-                    image.setImageURI(uriImage);
+                    try {
+                        image.setImageURI(uriImage);
+                    } catch (Exception e) {
+                        Log.i("code", e.getMessage());
+                    }
+
                 }
         }
 

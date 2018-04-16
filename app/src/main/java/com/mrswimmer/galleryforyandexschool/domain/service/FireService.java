@@ -96,6 +96,15 @@ public class FireService {
                 .subscribe(callback::onSuccess, callback::onError);
     }
 
+    public void like(String id, String mailKey) {
+        DatabaseReference like = reference.child("gallery").child(id).child("likes").child(mailKey);
+        like.setValue("like");
+    }
+
+    public void disLike(String id, String mailKey) {
+        DatabaseReference like = reference.child("gallery").child(id).child("likes").child(mailKey);
+        like.removeValue();
+    }
 
     public interface UploadImageCallBack {
         void onSuccess(UploadTask.TaskSnapshot taskSnapshot);

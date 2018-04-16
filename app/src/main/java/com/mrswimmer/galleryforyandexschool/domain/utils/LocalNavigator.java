@@ -79,7 +79,7 @@ public class LocalNavigator extends SupportFragmentNavigator {
     @Override
     protected void setupFragmentTransactionAnimation(Command command, Fragment currentFragment, Fragment nextFragment, FragmentTransaction fragmentTransaction){
         super.setupFragmentTransactionAnimation(command, currentFragment, nextFragment, fragmentTransaction);
-            fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }
 

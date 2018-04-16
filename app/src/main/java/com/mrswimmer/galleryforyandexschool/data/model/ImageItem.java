@@ -1,13 +1,14 @@
 package com.mrswimmer.galleryforyandexschool.data.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ImageItem {
     String url;
     String title;
     String description;
     String id;
-    ArrayList<String> likes = new ArrayList<>();
+    HashMap<String, String> likes = new HashMap<>();
 
     public ImageItem(String url, String title, String description) {
         this.url = url;
@@ -20,7 +21,7 @@ public class ImageItem {
         this.description = description;
     }
 
-    public ImageItem(String url, String title, String description, String id, ArrayList<String> likes) {
+    public ImageItem(String url, String title, String description, String id, HashMap<String, String> likes) {
         this.url = url;
         this.title = title;
         this.description = description;
@@ -28,11 +29,11 @@ public class ImageItem {
         this.likes = likes;
     }
 
-    public ArrayList<String> getLikes() {
+    public HashMap<String, String> getLikes() {
         return likes;
     }
 
-    public void setLikes(ArrayList<String> likes) {
+    public void setLikes(HashMap<String, String> likes) {
         this.likes = likes;
     }
 

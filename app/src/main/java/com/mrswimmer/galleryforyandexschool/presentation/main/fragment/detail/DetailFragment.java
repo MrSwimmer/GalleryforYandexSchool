@@ -65,7 +65,7 @@ public class DetailFragment extends BaseFragment implements DetailFragmentView {
         name.setText(imageItem.getTitle());
         description.setText(imageItem.getDescription());
         likes.setText(imageItem.getLikes().size() + "");
-        if (imageItem.getLikes().contains(mailKey)) {
+        if (imageItem.getLikes().containsKey(mailKey)) {
             isLike = true;
         }
         setAlphaLike();
@@ -74,13 +74,19 @@ public class DetailFragment extends BaseFragment implements DetailFragmentView {
     @OnClick(R.id.detail_like_button)
     void OnLikeClickListener() {
         isLike = !isLike;
-        /*presenter.*/
+        int count = Integer.parseInt(likes.getText().toString());
+        if(isLike)
+            count++;
+        else
+            count--;
+        likes.setText(count+"");
+        presenter.setLike(isLike);
         setAlphaLike();
     }
 
     private void setAlphaLike() {
         if (isLike) {
-            likeButton.setAlpha(1);
+            likeButton.setAlpha((float) 1);
         } else {
             likeButton.setAlpha(alphaLike);
         }

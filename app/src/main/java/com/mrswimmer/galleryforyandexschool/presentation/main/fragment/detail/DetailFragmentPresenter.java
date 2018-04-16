@@ -1,5 +1,7 @@
 package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.detail;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.mrswimmer.galleryforyandexschool.App;
@@ -22,6 +24,8 @@ public class DetailFragmentPresenter extends MvpPresenter<DetailFragmentView> {
     @Inject
     SettingsService settingsService;
 
+    ImageItem currentImage;
+
     public DetailFragmentPresenter() {
         App.getComponent().inject(this);
     }
@@ -30,13 +34,21 @@ public class DetailFragmentPresenter extends MvpPresenter<DetailFragmentView> {
         fireService.getImage(id, new FireService.ImageDetailCallback() {
             @Override
             public void onSuccess(ImageItem imageItem) {
+                currentImage = imageItem;
                 getViewState().initDetail(imageItem, settingsService.getMailKey());
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.i("code", "error detail " + e.getMessage());
             }
         });
+    }
+
+    public void setLike(boolean isLike) {
+        if (isLike)
+            fireService.like(currentImage.getId(), settingsService.getMailKey());
+        else
+            fireService.disLike(currentImage.getId(), settingsService.getMailKey());
     }
 }

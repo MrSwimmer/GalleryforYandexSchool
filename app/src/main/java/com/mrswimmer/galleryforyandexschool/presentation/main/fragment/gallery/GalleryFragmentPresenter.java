@@ -1,5 +1,7 @@
 package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.mrswimmer.galleryforyandexschool.App;
@@ -39,6 +41,7 @@ public class GalleryFragmentPresenter extends MvpPresenter<GalleryFragmentView> 
 
             @Override
             public void onError(Throwable e) {
+                Log.i("code", "error recycler " + e.getMessage());
                 getViewState().showToast("Ошибка!");
             }
         });
