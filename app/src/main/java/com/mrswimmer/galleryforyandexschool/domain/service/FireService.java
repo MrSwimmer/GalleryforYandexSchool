@@ -53,6 +53,7 @@ public class FireService {
         DatabaseReference newUser = reference.child("users").child(mailKey);
         newUser.setValue(user);
     }
+
     public void getUser(String mail, UserCallback callback) {
         RxFirebaseDatabase.observeSingleValueEvent(reference.child("users").child(mail), User.class)
                 .subscribe(callback::onSuccess, callback::onError);
@@ -65,11 +66,15 @@ public class FireService {
                         .subscribe(callback::onSuccess, callback::onError);
                 break;
             case Settings.GALLERY_FAVORITE:
-                RxFirebaseDatabase.observeSingleValueEvent(reference.child("users").child(mail).child("favorites"), DataSnapshotMapper.listOf(ImageItem.class))
+                RxFirebaseDatabase.observeSingleValueEvent(reference.child("users").child(mail).child("likes"), DataSnapshotMapper.listOf(ImageItem.class))
                         .subscribe(callback::onSuccess, callback::onError);
                 break;
             case Settings.GALLERY_MY_GALLERY:
                 RxFirebaseDatabase.observeSingleValueEvent(reference.child("users").child(mail).child("my"), DataSnapshotMapper.listOf(ImageItem.class))
+                        .subscribe(callback::onSuccess, callback::onError);
+                break;
+            default:
+                RxFirebaseDatabase.observeSingleValueEvent(reference.child("gallery"), DataSnapshotMapper.listOf(ImageItem.class))
                         .subscribe(callback::onSuccess, callback::onError);
                 break;
         }
@@ -96,14 +101,18 @@ public class FireService {
                 .subscribe(callback::onSuccess, callback::onError);
     }
 
-    public void like(String id, String mailKey) {
-        DatabaseReference like = reference.child("gallery").child(id).child("likes").child(mailKey);
+    public void like(ImageItem imageItem, String mailKey) {
+        DatabaseReference like = reference.child("gallery").child(imageItem.getId()).child("likes").child(mailKey);
         like.setValue("like");
+        DatabaseReference likeInUser = reference.child("users").child(mailKey).child("likes").child(imageItem.getId());
+        likeInUser.setValue(imageItem);
     }
 
-    public void disLike(String id, String mailKey) {
-        DatabaseReference like = reference.child("gallery").child(id).child("likes").child(mailKey);
+    public void disLike(ImageItem imageItem, String mailKey) {
+        DatabaseReference like = reference.child("gallery").child(imageItem.getId()).child("likes").child(mailKey);
         like.removeValue();
+        DatabaseReference likeInUser = reference.child("users").child(mailKey).child("likes").child(imageItem.getId());
+        likeInUser.removeValue();
     }
 
     public interface UploadImageCallBack {

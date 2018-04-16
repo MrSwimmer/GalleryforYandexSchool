@@ -1,8 +1,10 @@
 package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.gallery;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class GalleryFragment extends BaseFragment implements GalleryFragmentView {
+public class GalleryFragment extends BaseFragment implements GalleryFragmentView, SwipeRefreshLayout.OnRefreshListener {
     @InjectPresenter
     GalleryFragmentPresenter presenter;
 
@@ -33,14 +35,25 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
     RecyclerView recyclerView;
     @BindView(R.id.gallery_add_button)
     FloatingActionButton addButton;
+    @BindView(R.id.gallery_swipe)
+    SwipeRefreshLayout swipe;
 
+    String key = Settings.GALLERY_GALLERY;
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
+        swipe.setOnRefreshListener(this);
+        swipe.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+        swipe.setOnRefreshListener(() -> {
+            presenter.setRecyclerData(key);
+            swipe.setRefreshing(false);
+        });
         Bundle bundle = this.getArguments();
-        String key = Settings.GALLERY_GALLERY;
         if (bundle != null) {
             key = bundle.getString(Settings.GALLERY_BUNDLE_KEY);
         }
@@ -60,5 +73,12 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
     @OnClick(R.id.gallery_add_button)
     public void onAddButtonClick() {
         presenter.gotoNewImage();
+    }
+
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(() -> {
+            swipe.setRefreshing(false);
+        }, 4000);
     }
 }

@@ -53,4 +53,8 @@ public class NewImageFragmentPresenter extends MvpPresenter<NewImageFragmentView
             }
         });
     }
+
+    public void goBack() {
+        router.backTo(Screens.GALLERY_SCREEN);
+    }
 }

@@ -1,17 +1,21 @@
 package com.mrswimmer.galleryforyandexschool.presentation.main.fragment.new_image;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
+import com.bumptech.glide.Glide;
 import com.mrswimmer.galleryforyandexschool.R;
 import com.mrswimmer.galleryforyandexschool.data.model.ImageItem;
 import com.mrswimmer.galleryforyandexschool.data.settings.Settings;
@@ -82,16 +86,31 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
         switch (requestCode) {
             case Settings.GALLERY_REQUEST:
-                if (resultCode == RESULT_OK) {
+                Glide.with(getActivity())
+                        .load(imageReturnedIntent.getData())
+                        .placeholder(R.color.black)
+                        .into(image);
+                /*if (resultCode == RESULT_OK) {
                     uriImage = imageReturnedIntent.getData();
-                    try {
-                        image.setImageURI(uriImage);
-                    } catch (Exception e) {
-                        Log.i("code", e.getMessage());
-                    }
-
-                }
+                    image.setImageURI(uriImage);
+                } else {
+                    Log.i("code", "error show large photo " + resultCode);
+                    Glide.with(getActivity())
+                            .load(imageReturnedIntent.getData())
+                            .placeholder(R.color.black)
+                            .into(image);
+                }*/
         }
-
     }
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.undo:
+                Toast.makeText(getActivity(), "onBack", Toast.LENGTH_SHORT).show();
+                presenter.goBack();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
 }

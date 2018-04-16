@@ -111,4 +111,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+
+
+
 }
