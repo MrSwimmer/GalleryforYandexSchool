@@ -10,4 +10,8 @@
     <color name="yellow">#fffb1c</color>
     <color name="brawn">#5D4037</color>
     <color name="transparent">#00ffffff</color>
+    <color name="background_material_dark">#f2f2f2</color>
+    <color name="accent_material_dark">#b89d77</color>
+    <color name="statusbar">#676767</color>
+    <color name="accent_material_light">#b89d77</color>
 </resources>

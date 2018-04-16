@@ -13,5 +13,9 @@
         <item name="listPreferredItemHeightSmall">60dp</item><!-- item size in menu-->
     </style>
 
-    <style name="YandexGalleryTheme" parent="Theme.Design.NoActionBar" />
+    <style name="YandexGalleryTheme" parent="Theme.Design.Light.NoActionBar" >
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:colorForeground">@color/black</item>
+        <item name="colorPrimaryDark">?attr/colorAccent</item>
+    </style>
 </resources>
