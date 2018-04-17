@@ -10,10 +10,10 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="76dp"
         android:text="Вход"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="50sp"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -24,10 +24,10 @@
         android:id="@+id/sign_in_email"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -49,24 +49,29 @@
 
     <Button
         android:id="@+id/sign_in_enter"
-        android:layout_width="120dp"
+        style="@style/ColoredButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="Войти"
         app:layout_constraintBottom_toTopOf="@+id/sign_in_reg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/sign_in_password"
+        app:layout_constraintStart_toStartOf="@+id/sign_in_password" />
 
     <Button
         android:id="@+id/sign_in_reg"
-        android:layout_width="125dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Регистрация"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/sign_in_miss"
+        app:layout_constraintEnd_toEndOf="@+id/sign_in_enter"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sign_in_enter" />
 
     <TextView
         android:id="@+id/sign_in_miss"
@@ -75,7 +80,7 @@
         android:layout_marginBottom="32dp"
         android:text="@string/miss"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -2,15 +2,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_photo_library_black_24dp"
             android:title="Галерея" />
         <item
             android:id="@+id/nav_favor"
+            android:icon="@drawable/ic_favorite_black_24dp"
             android:title="Избранное" />
         <item
             android:id="@+id/nav_my_gallery"
+            android:icon="@drawable/ic_portrait_black_24dp"
             android:title="Моя галерея" />
         <item
             android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Настройки" />
     </group>
 </menu>
