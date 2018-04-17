@@ -7,4 +7,7 @@ public interface DetailFragmentView extends BaseView {
     void initDetail(ImageItem imageItem, String mailKey);
 
     void setLikes(int count);
+
+    void tryDownloadAgain();
+
 }

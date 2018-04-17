@@ -63,6 +63,7 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
         description = editDescription.getText().toString();
         if (checkOnFillingFields()) {
             ImageItem imageItem = new ImageItem(name, description);
+            upload.setClickable(false);
             presenter.createImage(imageItem, uriImage);
         }
     }
@@ -91,5 +92,10 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
                         .into(image);
                 uriImage = imageReturnedIntent.getData();
         }
+    }
+
+    @Override
+    public void tryUploadAgain() {
+        upload.setClickable(true);
     }
 }

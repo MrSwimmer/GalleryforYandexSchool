@@ -14,4 +14,6 @@
     <color name="accent_material_dark">#b89d77</color>
     <color name="statusbar">#676767</color>
     <color name="accent_material_light">#b89d77</color>
+    <color name="main">#b89d77</color>
+    <color name="but_color">#5d4037</color>
 </resources>

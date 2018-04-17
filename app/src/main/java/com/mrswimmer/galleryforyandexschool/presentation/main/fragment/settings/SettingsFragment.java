@@ -39,7 +39,7 @@ public class SettingsFragment extends BaseFragment implements SettingsFragmentVi
         presenter.setMark();
     }
 
-    @OnClick(R.id.settings_about_company)
+    @OnClick(R.id.settings_about_app)
     void onAboutCompanyClick() {
         presenter.gotoAboutCompany();
     }

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
 import com.mrswimmer.galleryforyandexschool.data.settings.Settings;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.SignInFragment;
@@ -25,6 +26,7 @@ public class LocalNavigator extends SupportFragmentNavigator {
     public LocalNavigator(FragmentManager fragmentManager, int containerId) {
         super(fragmentManager, containerId);
         currentContainer = containerId;
+        App.getComponent().inject(this);
     }
 
     @Override

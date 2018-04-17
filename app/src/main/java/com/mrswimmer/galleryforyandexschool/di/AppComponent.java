@@ -4,6 +4,7 @@ import com.mrswimmer.galleryforyandexschool.di.module.FireModule;
 import com.mrswimmer.galleryforyandexschool.di.module.NavigatorModule;
 import com.mrswimmer.galleryforyandexschool.di.module.SharedPreferencesModule;
 import com.mrswimmer.galleryforyandexschool.domain.service.SettingsService;
+import com.mrswimmer.galleryforyandexschool.domain.utils.LocalNavigator;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.activity.AuthActivity;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in.SignInFragmentPresenter;
 import com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_up.SignUpFragmentPresenter;
@@ -45,4 +46,6 @@ public interface AppComponent {
     void inject(DetailFragmentPresenter detailFragmentPresenter);
 
     void inject(SettingsFragmentPresenter settingsFragmentPresenter);
+
+    void inject(LocalNavigator localNavigator);
 }

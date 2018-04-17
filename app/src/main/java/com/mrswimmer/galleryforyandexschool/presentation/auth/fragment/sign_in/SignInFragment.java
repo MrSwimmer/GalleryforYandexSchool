@@ -1,6 +1,8 @@
 package com.mrswimmer.galleryforyandexschool.presentation.auth.fragment.sign_in;
 
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
@@ -25,7 +27,10 @@ public class SignInFragment extends BaseFragment implements SignInFragmentView {
     EditText editEmail;
     @BindView(R.id.sign_in_password)
     EditText editPass;
-
+    @BindView(R.id.sign_in_enter)
+    Button signin;
+    @BindView(R.id.sign_in_reg)
+    Button signup;
 
     @Override
     protected int getLayoutID() {
@@ -48,6 +53,8 @@ public class SignInFragment extends BaseFragment implements SignInFragmentView {
     void enter() {
         if (checkOnFillingFields()) {
             presenter.enter(email, password);
+            signin.setClickable(false);
+            signup.setClickable(false);
         } else {
             showToast("Запоните все поля");
         }
@@ -57,5 +64,11 @@ public class SignInFragment extends BaseFragment implements SignInFragmentView {
         if (email.equals("") || password.equals(""))
             return false;
         return true;
+    }
+
+    @Override
+    public void trySignInAgain() {
+        signin.setClickable(true);
+        signup.setClickable(true);
     }
 }

@@ -4,4 +4,6 @@ import com.mrswimmer.galleryforyandexschool.presentation.base.BaseView;
 
 interface SignInFragmentView extends BaseView {
 
+    void trySignInAgain();
+
 }

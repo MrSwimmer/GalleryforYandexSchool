@@ -6,4 +6,6 @@ import com.mrswimmer.galleryforyandexschool.presentation.base.BaseView;
 import java.util.ArrayList;
 
 public interface NewImageFragmentView extends BaseView {
+    void tryUploadAgain();
+
 }

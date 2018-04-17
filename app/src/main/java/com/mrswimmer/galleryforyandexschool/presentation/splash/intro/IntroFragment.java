@@ -41,11 +41,11 @@ public class IntroFragment extends SlideFragment {
     }
     @Override
     public int backgroundColor() {
-        return R.color.yellow;
+        return R.color.main;
     }
 
     @Override
     public int buttonsColor() {
-        return R.color.empty;
+        return R.color.but_color;
     }
 }
