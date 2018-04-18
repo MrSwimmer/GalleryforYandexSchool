@@ -38,6 +38,7 @@ public class MainActivityPresenter extends MvpPresenter<MainActivityView> {
     }
 
     public void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setCheckedItem(0);
         navigationView.setNavigationItemSelectedListener(
                 menuItem -> {
                     selectDrawerItem(menuItem);

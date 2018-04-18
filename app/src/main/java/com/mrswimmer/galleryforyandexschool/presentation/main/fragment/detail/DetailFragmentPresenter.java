@@ -75,7 +75,7 @@ public class DetailFragmentPresenter extends MvpPresenter<DetailFragmentView> {
 
                 @Override
                 public void onError(Throwable e) {
-
+                    getViewState().showToast(e.getMessage());
                 }
             });
     }

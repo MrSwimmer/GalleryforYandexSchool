@@ -16,4 +16,5 @@
     <color name="accent_material_light">#b89d77</color>
     <color name="main">#b89d77</color>
     <color name="but_color">#5d4037</color>
+    <color name="main_trans">#bab89d77</color>
 </resources>

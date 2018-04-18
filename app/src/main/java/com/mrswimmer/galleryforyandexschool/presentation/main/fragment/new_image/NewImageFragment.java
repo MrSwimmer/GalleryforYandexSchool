@@ -65,11 +65,13 @@ public class NewImageFragment extends BaseFragment implements NewImageFragmentVi
             ImageItem imageItem = new ImageItem(name, description);
             upload.setClickable(false);
             presenter.createImage(imageItem, uriImage);
+        } else {
+            showToast("Заполните все поля и выберите картинку");
         }
     }
 
     boolean checkOnFillingFields() {
-        if (name.equals("") || description.equals("") || uriImage.equals(null))
+        if (name.equals("") || description.equals("") || uriImage == null)
             return false;
         return true;
     }

@@ -30,7 +30,7 @@ public class GlobalNavigator implements Navigator {
         if (command instanceof Forward) {
             switch (((Forward) command).getScreenKey()) {
                 case Screens.AUTH_ACTIVITY:
-                    activity.overridePendingTransition(0,0);
+                    activity.overridePendingTransition(0, 0);
                     TaskStackBuilder.create(activity)
                             .addNextIntentWithParentStack(new Intent(activity, AuthActivity.class))
                             .addNextIntent(new Intent(activity, IntroActivity.class))
@@ -38,7 +38,7 @@ public class GlobalNavigator implements Navigator {
                     activity.finish();
                     break;
                 case Screens.MAIN_ACTIVITY:
-                    activity.overridePendingTransition(0,0);
+                    activity.overridePendingTransition(0, 0);
                     intent = new Intent(activity, MainActivity.class);
                     activity.startActivity(intent);
                     activity.finish();
@@ -55,6 +55,10 @@ public class GlobalNavigator implements Navigator {
                     intent.putExtra(Intent.EXTRA_SUBJECT, "Поделиться");
                     intent = Intent.createChooser(intent, "С помощью");
                     activity.startActivity(intent);
+                    break;
+                case Screens.GITHUB:
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MrSwimmer/GalleryforYandexSchool"));
+                    activity.startActivity(browserIntent);
             }
         }
     }

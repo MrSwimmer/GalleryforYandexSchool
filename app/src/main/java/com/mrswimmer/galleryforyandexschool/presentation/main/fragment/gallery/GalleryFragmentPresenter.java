@@ -12,6 +12,8 @@ import com.mrswimmer.galleryforyandexschool.domain.service.FireService;
 import com.mrswimmer.galleryforyandexschool.domain.service.SettingsService;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,6 +38,7 @@ public class GalleryFragmentPresenter extends MvpPresenter<GalleryFragmentView> 
         fireService.getGallery(key, settingsService.getMailKey(), new FireService.GalleryCallback() {
             @Override
             public void onSuccess(List<ImageItem> imageItems) {
+                Collections.sort(imageItems, (o1, o2) -> o2.getId().compareTo(o1.getId()));
                 getViewState().initAdapter((ArrayList<ImageItem>) imageItems);
             }
 

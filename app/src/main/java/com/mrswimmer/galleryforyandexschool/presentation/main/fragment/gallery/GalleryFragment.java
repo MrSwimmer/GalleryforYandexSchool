@@ -8,9 +8,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
+import com.github.florent37.tutoshowcase.TutoShowcase;
 import com.mrswimmer.galleryforyandexschool.R;
 import com.mrswimmer.galleryforyandexschool.data.model.ImageItem;
 import com.mrswimmer.galleryforyandexschool.data.settings.Settings;
@@ -37,8 +39,11 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
     FloatingActionButton addButton;
     @BindView(R.id.gallery_swipe)
     SwipeRefreshLayout swipe;
+    @BindView(R.id.gallery_empty_text)
+    TextView emptyText;
 
     String key = Settings.GALLERY_GALLERY;
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,10 +54,6 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        /*swipe.setOnRefreshListener(() -> {
-            presenter.setRecyclerData(key);
-            swipe.setRefreshing(false);
-        });*/
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             key = bundle.getString(Settings.GALLERY_BUNDLE_KEY);
@@ -68,6 +69,10 @@ public class GalleryFragment extends BaseFragment implements GalleryFragmentView
     @Override
     public void initAdapter(ArrayList<ImageItem> imageItems) {
         swipe.setRefreshing(false);
+        if (imageItems.size() == 0)
+            emptyText.setVisibility(View.VISIBLE);
+        else
+            emptyText.setVisibility(View.INVISIBLE);
         recyclerView.setAdapter(new ImagesAdapter(imageItems, getActivity()));
     }
 

@@ -43,4 +43,5 @@ public interface Screens {
     String FAVORITE_SCREEN = "favor screen";
     String NEW_IMAGE_SCREEN = "new image screen";
     String DETAIL_SCREEN = "detail screen";
+    String GITHUB = "github";
 }

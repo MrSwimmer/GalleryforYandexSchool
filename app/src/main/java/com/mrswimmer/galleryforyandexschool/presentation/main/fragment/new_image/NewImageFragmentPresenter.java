@@ -50,6 +50,7 @@ public class NewImageFragmentPresenter extends MvpPresenter<NewImageFragmentView
             @Override
             public void onError(Throwable e) {
                 Log.i("code", "in create err " + e.getMessage());
+                getViewState().showToast(e.getMessage());
                 getViewState().tryUploadAgain();
             }
         });

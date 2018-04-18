@@ -1,40 +1,35 @@
 package com.mrswimmer.galleryforyandexschool.presentation.main.activity;
 
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
+import com.github.florent37.tutoshowcase.TutoShowcase;
 import com.mrswimmer.galleryforyandexschool.App;
 import com.mrswimmer.galleryforyandexschool.R;
 import com.mrswimmer.galleryforyandexschool.data.settings.Screens;
-import com.mrswimmer.galleryforyandexschool.data.settings.Settings;
 import com.mrswimmer.galleryforyandexschool.domain.service.SettingsService;
 import com.mrswimmer.galleryforyandexschool.presentation.base.BaseActivity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import ru.terrakok.cicerone.Navigator;
-import ru.terrakok.cicerone.android.SupportFragmentNavigator;
-import ru.terrakok.cicerone.commands.Command;
 
 public class MainActivity extends BaseActivity implements MainActivityView {
 
     @InjectPresenter
     MainActivityPresenter presenter;
-    private ActionBarDrawerToggle drawerToggle;
+    ActionBarDrawerToggle drawerToggle;
 
     @Inject
     SettingsService settingsService;
@@ -50,6 +45,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     Toolbar toolbar;
     @BindView(R.id.navView)
     NavigationView navigationView;
+    @BindView(R.id.main_container)
+    FrameLayout mainFrameLayout;
 
     View headerLayout;
 
@@ -113,8 +110,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
-
-
 
 
 }

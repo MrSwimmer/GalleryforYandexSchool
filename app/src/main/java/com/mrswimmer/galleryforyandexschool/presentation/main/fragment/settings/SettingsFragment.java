@@ -31,7 +31,7 @@ public class SettingsFragment extends BaseFragment implements SettingsFragmentVi
 
     @OnClick(R.id.settings_about_version)
     void onAboutVersionClick() {
-        showDialog("О версии", "Что-то о версии");
+        showDialog("О версии", "Первая версия! Все новое!");
     }
 
     @OnClick(R.id.settings_mark)
@@ -47,5 +47,10 @@ public class SettingsFragment extends BaseFragment implements SettingsFragmentVi
     @OnClick(R.id.settings_instruction)
     void onInstructionClick() {
         presenter.gotoInstruction();
+    }
+
+    @OnClick(R.id.settings_github)
+    void onGitHubClick() {
+        presenter.gotoGitHub();
     }
 }

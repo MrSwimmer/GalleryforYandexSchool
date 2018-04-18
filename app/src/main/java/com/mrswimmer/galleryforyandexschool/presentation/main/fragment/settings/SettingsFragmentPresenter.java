@@ -65,4 +65,8 @@ public class SettingsFragmentPresenter extends MvpPresenter<SettingsFragmentView
     public void gotoInstruction() {
         localRouter.navigateTo(Screens.INFO_SCREEN, R.string.instruction);
     }
+
+    public void gotoGitHub() {
+        globalRouter.navigateTo(Screens.GITHUB);
+    }
 }
